@@ -1,9 +1,9 @@
 import sys
 
 from authlib.jose.errors import BadSignatureError, DecodeError
-from django.conf.urls import url
 from django.http import HttpResponse
 from django.test import TestCase
+from django.urls import re_path
 from rest_framework.exceptions import AuthenticationFailed
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.views import APIView
@@ -36,7 +36,7 @@ class MockView(APIView):
 
 
 urlpatterns = [
-    url(r'^test/$', MockView.as_view(), name="testview")
+    re_path(r'^test/$', MockView.as_view(), name="testview")
 ]
 
 
